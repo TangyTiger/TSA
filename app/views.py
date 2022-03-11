@@ -71,7 +71,7 @@ def signinpg():
 
 @app.route('/home', methods=['GET'])
 def homepg():
-    return render_template('fullScreenHome.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
+    return render_template('homePageNew.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
 
 @app.route('/fullScreenHome')
 def fullscrnhomepg():
