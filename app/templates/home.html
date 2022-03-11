@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    #discussion{
+      border-bottom: 2px solid darkgrey
+    }
+    #supplies{
+      border-bottom: 2px
+    }
+
+    </style>
+    <script src="/static/caleandar-master/js/caleandar.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="/static/caleandar-master/css/theme1.css"> -->
+    <!-- <link rel="stylesheet" href="/static/caleandar-master/css/theme2.css"> -->
+    <link rel="stylesheet" href="/static/caleandar-master/css/theme3.css">
+</head>
+<body style="overflow: auto;" class="bg-light">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="/home">
+        <img src="/static/logo.png" alt="logo" width="60px">
+      </a>
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link mx-4" href="/viewTutorsSubjects" style="font-size: 20px;">Find a Tutor</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="/viewCarpoolSubjects" style="font-size: 20px;">Find a Carpool</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto mr-4">
+        <li class="nav-item p-0">
+            <a class="nav-link btn btn-danger m-0" href="/post" style="border-radius: 50%; font-size: 30px; width: 55px; height: 55px; padding: 0px">+</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid bg-light row">
+        <br>
+        <h1 class="ml-2 container-fluid">Discussion <a href = "/viewAllDiscussions"class = "btn btn-danger">View all</a></h1>
+        <div class="container-fluid mt-3 w-100 p-3" id="discussion">
+            <div class="row">
+                {% for post in range(6) if not post >= discussionPosts|length %}
+                <div class="col-2 card p-3 post mt-1 mx-2">
+                    <div class="card-header">{{discussionPosts[post]["title"]}}</div>
+                    <div class="card-body">
+                        posted by <b>{{discussionPosts[post]["name"]}}</b>
+                        <br>
+                        <a id = "{{discussionPosts[post]['id']}}" href="/discussionsThread?id={{discussionPosts[post]['id']}}">reply</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div id="caleandar" class="col-1">
+                </div>
+                <script>
+                var events = [
+                {'Date': new Date(2021, 10, 12), 'Title': 'Quarter Grades Due'},
+                {'Date': new Date(2021, 10, 11), 'Title': "No School - Veteran's Day"},
+                {'Date': new Date(2021, 10, 17), 'Title': 'EHS Fall Play - Peter and the Starcatcher'},
+                {'Date': new Date(2021, 10, 24), 'Title': 'Half Day - Thanksgiving'},
+                {'Date': new Date(2021, 10, 25), 'Title': 'No School - Thanksgiving'},
+                {'Date': new Date(2021, 10, 25), 'Title': 'No School - Thanksgiving'},
+                {'Date': new Date(2021, 11, 20), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 21), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 22), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 23), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 24), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 27), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 28), 'Title': 'No School - Winter Break'},
+
+                {'Date': new Date(2021, 11, 29), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 30), 'Title': 'No School - Winter Break'},
+                {'Date': new Date(2021, 11, 31), 'Title': 'No School - Winter Break'}
+            ];
+            var settings = {
+            };
+            var element = document.getElementById('caleandar');
+            caleandar(element, events, settings)
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light">
+        <br>
+        <h1 class="ml-2 container-fluid">Borrow Supplies <a href = "/viewAllSupplies"class = "btn btn-danger">View all</a></h1>
+        <div class="container-fluid mt-3 w-100 p-3" id="supplies">
+            <div class="row">
+                {% for post in supplyPosts %}
+                <div class="col-2 card p-3 post m-2">
+                    <div class="card-header">{{post["title"]}}</div>
+                    <div class="card-body">
+                        posted by <b>{{post["name"]}}</b>
+                        <br>
+                        <a href="#">reply</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
