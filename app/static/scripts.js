@@ -129,25 +129,41 @@ function submit() {
     }).addTo(mymap);
     mymap.on('click', onMapClick);
   } else if(dropdown.value == "Other") {
-    console.log("no");
+    console.log("bye");
     document.getElementById("formthing").innerHTML = `
     <p>Title (include purpose)</p>
-    <input type="text" id="questionPostTitle" name="questionPostTitle" placeholder="Title">
+    <input type = "text" id = "otherPostTitle" name = "otherPostTitle" placeholder="Title">
     <br>
     <br>
     <p>(Description, include experiences, dates, goals, and special notes)</p>
-    <textarea rows="6" cols="50" id="questionPostDescription" name="questionPostDescription"></textarea>
-
+    <textarea rows = "6" cols = "50" id = "otherPostDescription" name = "otherPostDescription" placeholder="Description"></textarea>
     <br>
+    <br>
+    <p>Location (click on your general area)</p>
+    <div id="map" style="height:300px; width:300px"></div>
+    <br>
+    <p>Your fundraising goal</p>
+    <label>$ </label><input type = "text" id = "otherFee" name = "otherPostFee"><br>
     <br>
     <p>Your Name</p>
-    <input type="text" id="questionPostName" name="questionPostName" placeholder="John Doe">
+    <input type = "text" id = "otherPostName" name = "otherPostName"><br>
+    <br>
+    <p>Your Email</p>
+    <input type = "text" id = "otherPostEmail" name = "otherPostEmail">
     <br>
     <br>
-    <button onclick="send_question()" class="btn btn-danger">Submit</button>
-
-
+    <button onclick="send_other()" class="btn btn-danger">Submit</button>    
     `
+    mymap = L.map('map').setView([47.61341768915884, -122.03149390175979], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA'
+    }).addTo(mymap);
+    mymap.on('click', onMapClick);
   }
 }
 
@@ -185,12 +201,15 @@ function send_economic() {
   location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
 }
 
-function send_question() {
+function send_other() {
   var type = dropdown.value
-  var title = document.getElementById("questionPostTitle").value
-  var description = document.getElementById('questionPostDescription').value
-  var name = document.getElementById('questionPostName').value
-  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name
+  var title = document.getElementById("otherPostTitle").value
+  var description = document.getElementById("otherPostDescription").value
+  var name = document.getElementById("otherPostName").value
+  var email = document.getElementById("otherPostEmail").value
+  var fee = document.getElementById('otherFee').value
+  var subject = document.getElementById("dropdown").value
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
 }
 
  function viewTutorPost(data) {

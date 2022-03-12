@@ -50,6 +50,8 @@ with open('tutor.txt') as f:
     tutoringPosts = json.load(f)
 with open('economic.txt') as f:
   economicPosts = json.load(f)
+with open('other.txt') as f:
+  otherPosts = json.load(f)
 with open('ids.txt') as f:
    ids = json.load(f)
 
@@ -115,10 +117,15 @@ def submitpost():
         post['fee'] = form.get('fee')
         economicPosts.append(post)
         print(socialPosts)
-    if post["type"] == "discussion":
+    if post["type"] == "Other":
         post["name"] = form.get("name")
-        post["replies"] = []
-        discussionPosts.append(post)
+        post["email"] = form.get("email")
+        post['lat'] = form.get('lat')
+        post['lng'] = form.get('lng')
+        post['subject'] = form.get('subject')
+        post['fee'] = form.get('fee')
+        otherPosts.append(post)
+        print(otherPosts)
     print(post)
     save()
     return redirect("/save")
@@ -209,8 +216,8 @@ def viewAllEnvironmental():
 
 @app.route('/save')
 def save():
-    with open('discussion.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(discussionPosts, indent=5))
+    with open('other.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(otherPosts, indent=5))
     with open('environmental.txt', 'w') as convert_file:
         convert_file.write(json.dumps(environmentalPosts, indent=5))
     with open('social.txt', 'w') as convert_file:
