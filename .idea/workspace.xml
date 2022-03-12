@@ -124,10 +124,10 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.672@0.0.1280.672" timestamp="1647028176550" />
-    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1647046880563">
+    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1647055974946">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.672@0.0.1280.672" timestamp="1647046880563" />
+    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.672@0.0.1280.672" timestamp="1647055974946" />
     <state x="421" y="91" key="FileChooserDialogImpl" timestamp="1647028175236">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
@@ -148,6 +148,10 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state width="629" height="153" key="GridCell.Tab.0.right/0.0.1280.672@0.0.1280.672" timestamp="1647054660230" />
+    <state x="354" y="52" key="MultipleFileMergeDialog" timestamp="1647056032409">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="354" y="52" key="MultipleFileMergeDialog/0.0.1280.672@0.0.1280.672" timestamp="1647056032409" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1647047915148">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
@@ -156,9 +160,9 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state x="233" y="58" key="Vcs.Push.Dialog.v2/0.0.1280.672@0.0.1280.672" timestamp="1647030837657" />
-    <state x="450" y="253" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1647046843847">
+    <state x="450" y="253" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1647056020154">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state x="450" y="253" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.672@0.0.1280.672" timestamp="1647046843847" />
+    <state x="450" y="253" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.672@0.0.1280.672" timestamp="1647056020154" />
   </component>
 </project>
