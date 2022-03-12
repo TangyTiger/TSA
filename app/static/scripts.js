@@ -247,7 +247,7 @@ function viewEnvironmentalPost(data) {
         window._name = data.name
         window._description = data.description
         window._email = data.email
-        window._phone = data.phone
+        window._name = data.name
         window._lat = data.lat
         window._lng = data.lng
         console.log(window._title)
