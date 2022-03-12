@@ -42,6 +42,8 @@ import json
 
 with open('environmental.txt') as f:
     environmentalPosts = json.load(f)
+with open('social.txt') as f:
+    socialPosts = json.load(f)
 with open('discussion.txt') as f:
     discussionPosts = json.load(f)
 with open('tutor.txt') as f:
@@ -100,13 +102,15 @@ def submitpost():
         post['fee'] = form.get('fee')
         environmentalPosts.append(post)
         print(environmentalPosts)
-    if post["type"] == "tutor":
+    if post["type"] == "Social Inequality":
+        post["name"] = form.get("name")
         post["email"] = form.get("email")
-        post["fee"] = form.get("fee")
-        post["subject"] = form.get("subject")
-        post["phone"] = form.get("phone")
-        tutoringPosts.append(post)
-        print(tutoringPosts)
+        post['lat'] = form.get('lat')
+        post['lng'] = form.get('lng')
+        post['subject'] = form.get('subject')
+        post['fee'] = form.get('fee')
+        socialPosts.append(post)
+        print(socialPosts)
     if post["type"] == "supplies":
         post["name"] = form.get("name")
         post["email"] = form.get("email")
@@ -210,6 +214,8 @@ def save():
         convert_file.write(json.dumps(discussionPosts, indent=5))
     with open('environmental.txt', 'w') as convert_file:
         convert_file.write(json.dumps(environmentalPosts, indent=5))
+    with open('social.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(socialPosts, indent=5))
     with open('tutor.txt', 'w') as convert_file:
         convert_file.write(json.dumps(tutoringPosts, indent=5))
     with open('supplies.txt', 'w') as convert_file:
