@@ -70,7 +70,6 @@ def signinpg():
 
 
 @app.route('/home', methods=['GET'])
-@app.route('/', methods=['GET'])
 def homepg():
     return render_template('index.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
 
@@ -194,7 +193,7 @@ def sendReply():
             return redirect("/discussionsThread?id=" + str(id))
 
 
-@app.route('/view')
+@app.route('/carpoolViewing')
 def viewAllCarpools():
     subject = request.args.get("subject")
     filteredSubjects = []
