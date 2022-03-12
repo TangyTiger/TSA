@@ -19,39 +19,35 @@ function onMapClick(e) {
   lng = loc.lng
 }
 function submit() {
+  //window.dropdown = document.getElementById('dropdown');
+  console.log("Hi")
+  console.log(document.getElementById('dropdown').value)
   window.dropdown = document.getElementById('dropdown');
-  if (dropdown.value == "carpool") {
+  if (dropdown.value == "Environmental") {
     console.log("hi");
     document.getElementById("formthing").innerHTML = `
-    <p>Title (include the destination)</p>
-    <input type = "text" id = "carpoolPostTitle" name = "carpoolPostTitle" placeholder="Title">
+    <p>Title (include purpose)</p>
+    <input type = "text" id = "environmentalPostTitle" name = "environmentalPostTitle" placeholder="Title">
     <br>
     <br>
-    <p>Description (longer description about the carpool, include timings and special notes)</p>
-    <textarea rows = "6" cols = "50" id = "carpoolPostDescription" name = "carpoolPostDescription" placeholder="Description"></textarea>
+    <p>(Description, include experiences, dates, goals, and special notes)</p>
+    <textarea rows = "6" cols = "50" id = "environmentalPostDescription" name = "environmentalPostDescription" placeholder="Description"></textarea>
     <br>
     <br>
-    <p>Your Pickup Range (click on your general area)</p>
+    <p>Location (click on your general area)</p>
     <div id="map" style="height:300px; width:300px"></div>
     <br>
-    <select id="subject" name="subject" class="btn btn-danger">
-      <option value="basketball">Basketball</option>
-      <option value="mun">Model UN</option>
-      <option value="deca">DECA</option>
-      <option value="soccer">Soccer</option>
-      <option value="track">Track</option>
-      <option value="swimming">Swimming</option>
-    </select>
+    <p>Your fundraising goal</p>
+    <label>$ </label><input type = "text" id = "environmentalFee" name = "environmentalPostFee"><br>
+    <br>
     <p>Your Name</p>
-    <input type = "text" id = "carpoolPostName" name = "carpoolPostName"><br>
+    <input type = "text" id = "environmentalPostName" name = "environmentalPostName"><br>
     <br>
     <p>Your Email</p>
-    <input type = "text" id = "carpoolPostEmail" name = "carpoolPostEmail">
+    <input type = "text" id = "environmentalPostEmail" name = "environmentalPostEmail">
     <br>
     <br>
-    <p>Phone Number (optional)</p>
-    <input type = "text" id = "carpoolPostPhone" name = "carpoolPostPhone">
-    <button onclick="send_carpool()" class="btn btn-danger">Submit</button>    `
+    <button onclick="send_environmental()" class="btn btn-danger">Submit</button>    `
     mymap = L.map('map').setView([47.61341768915884, -122.03149390175979], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -62,28 +58,18 @@ function submit() {
         accessToken: 'sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA'
     }).addTo(mymap);
     mymap.on('click', onMapClick);
-  } else if (dropdown.value == "tutor") {
+  } else if (dropdown.value == "Social Inequality") {
     console.log("bye");
     document.getElementById("formthing").innerHTML = `
-    <p>Job Title (include your name)</p>
+    <p>Title (include purpose)</p>
     <input type = "text" id = "tutorPostTitle" name = "tutorPostTitle" placeholder="Title">
     <br>
     <br>
-    <p>Description (longer description of the services you offer, your qualifications)</p>
+    <p>(Description, include experiences, dates, goals, and special notes)</p>
     <textarea rows = "6" cols = "50" id = "tutorPostDescription" name = "tutorPostDescription" placeholder="Description"></textarea>
     <br>
     <br>
-    <p>What subject are you teaching?</p>
-    <select class="btn btn-danger" id = "tutorPostSubject" name = "tutorPostSubject">
-      <option value="english">English</option>
-      <option value="science">Science</option>
-      <option value="math">Math</option>
-      <option value="ss">Social Studies</option>
-      <option value="cs">Computer Science</option>
-      <option value="wl">World Language</option>
-    </select>
-    <br><br>
-    <p>Your Fee Per Hour</p>
+    <p>Your fundraising goal</p>
     <label>$ </label><input type = "text" id = "tutorPostFee" name = "tutorPostFee"><br>
     <br>
     <p>Your Email</p>
@@ -95,14 +81,14 @@ function submit() {
     <input type = "text" id = "tutorPostPhone" name = "tutorPostPhone">
     <button onclick="send_tutor()" class="btn btn-danger">Submit</button>
     `
-  } else if(dropdown.value == "supplies") {
+  } else if(dropdown.value == "Economic Inequality") {
     console.log("yes");
     document.getElementById("formthing").innerHTML = `
-    <p>Post Title (what supplies do you need?)</p>
+    <p>Title (include purpose)</p>
     <input type="text" id="supplyPostTitle" name="supplyPostTitle" placeholder="Title">
     <br>
     <br>
-    <p>Description (specifications for what supplies you need, how many, when, etc.)</p>
+    <p>(Description, include experiences, dates, goals, and special notes)</p>
     <textarea rows="6" cols="50" id="supplyPostDescription" name="supplyPostDescription"></textarea>
     <br>
     <br>
@@ -115,21 +101,21 @@ function submit() {
     <input type="text" id="supplyPostEmail" name="supplyPostEmail" >
     <br>
     <br>
-    <p>Phone Number (optional)</p>
-    <input type="text" id="supplyPostPhone" name="supplyPostPhone">
     <button onclick="send_supply()" class="btn btn-danger">Submit</button>
     `
-  } else if(dropdown.value == "discussion") {
+  } else if(dropdown.value == "Other") {
     console.log("no");
     document.getElementById("formthing").innerHTML = `
-    <p>Post Title (summarize your question)</p>
+    <p>Title (include purpose)</p>
     <input type="text" id="questionPostTitle" name="questionPostTitle" placeholder="Title">
     <br>
     <br>
-    <p>Description (Elaborate on your question, tell us exactly what you need to know)</p>
+    <p>(Description, include experiences, dates, goals, and special notes)</p>
     <textarea rows="6" cols="50" id="questionPostDescription" name="questionPostDescription"></textarea>
+
     <br>
     <br>
+    <p>Your Name</p>
     <input type="text" id="questionPostName" name="questionPostName" placeholder="John Doe">
     <br>
     <br>
@@ -140,15 +126,16 @@ function submit() {
   }
 }
 
-function send_carpool() {
+function send_environmental() {
     var type = dropdown.value
-    var title = document.getElementById("carpoolPostTitle").value
-    var description = document.getElementById("carpoolPostDescription").value
-    var name = document.getElementById("carpoolPostName").value
-    var email = document.getElementById("carpoolPostEmail").value
-    var phone = document.getElementById("carpoolPostPhone").value
-    var subject = document.getElementById('subject').value
-    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject
+    var title = document.getElementById("environmentalPostTitle").value
+    var description = document.getElementById("environmentalPostDescription").value
+    var name = document.getElementById("environmentalPostName").value
+    var email = document.getElementById("environmentalPostEmail").value
+    var phone = document.getElementById("environmentalPostPhone").value
+    var fee = document.getElementById('environmental').value
+    var subject = document.getElementById("dropdown").value
+    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
 
 }
 
@@ -209,9 +196,9 @@ function send_question() {
    })
  }
 
-function viewCarpoolPost(data) {
+function viewEnvironmentalPost(data) {
   $.get({
-    url: "/getCarpoolPost?id=" + data,
+    url: "/getEnvironmentalPost?id=" + data,
     success: function(data, status){
         window._title = data.title
         window._name = data.name

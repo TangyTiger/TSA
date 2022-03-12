@@ -40,8 +40,8 @@ import json
 # ]
 
 
-with open('carpool.txt') as f:
-    carpoolPosts = json.load(f)
+with open('environmental.txt') as f:
+    environmentalPosts = json.load(f)
 with open('discussion.txt') as f:
     discussionPosts = json.load(f)
 with open('tutor.txt') as f:
@@ -91,15 +91,16 @@ def submitpost():
         "name": form.get("name"),
         "id": preid
     }
-    if post["type"] == "carpool":
+    if post["type"] == "Environmental":
         post["name"] = form.get("name")
         post["phone"] = form.get("phone")
         post["email"] = form.get("email")
         post['lat'] = form.get('lat')
         post['lng'] = form.get('lng')
         post['subject'] = form.get('subject')
-        carpoolPosts.append(post)
-        print(carpoolPosts)
+        post['fee'] = form.get('fee')
+        environmentalPosts.append(post)
+        print(environmentalPosts)
     if post["type"] == "tutor":
         post["email"] = form.get("email")
         post["fee"] = form.get("fee")
@@ -125,9 +126,9 @@ def viewtutors():
     return render_template("viewTutorsSubjects.html")
 
 
-@app.route('/view')
-def viewcarpools():
-    return render_template("viewCarpoolSubjects.html")
+@app.route('/viewEnvironmentalSubjects')
+def viewEnvironmental():
+    return render_template("viewEnvironmentalSubjects.html")
 
 
 @app.route('/tutorViewing')
@@ -149,10 +150,10 @@ def getTutorPost():
             return jsonify(i)
 
 
-@app.route('/getCarpoolPost')
-def getCarpoolPost():
+@app.route('/getEnvironmentalPost')
+def getEnvironmentalPost():
     data = int(request.args.get("id"))
-    for i in carpoolPosts:
+    for i in environmentalPosts:
         if i["id"] == data:
             return jsonify(i)
 
@@ -194,21 +195,21 @@ def sendReply():
             return redirect("/discussionsThread?id=" + str(id))
 
 
-"""@app.route('/view')
-def viewAllCarpools():
+@app.route('/view')
+def viewAllEnvironmental():
     subject = request.args.get("subject")
     filteredSubjects = []
-    for i in carpoolPosts:
+    for i in environmentalPosts:
         if i["subject"] == subject:
             filteredSubjects.append(i)
-    return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)"""
+    return render_template('environmentalViewing.html', tutorPosts=filteredSubjects)
 
 @app.route('/save')
 def save():
     with open('discussion.txt', 'w') as convert_file:
         convert_file.write(json.dumps(discussionPosts, indent=5))
-    with open('carpool.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(carpoolPosts, indent=5))
+    with open('environmental.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(environmentalPosts, indent=5))
     with open('tutor.txt', 'w') as convert_file:
         convert_file.write(json.dumps(tutoringPosts, indent=5))
     with open('supplies.txt', 'w') as convert_file:
