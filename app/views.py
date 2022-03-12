@@ -48,8 +48,8 @@ with open('discussion.txt') as f:
     discussionPosts = json.load(f)
 with open('tutor.txt') as f:
     tutoringPosts = json.load(f)
-with open('supplies.txt') as f:
-  schoolSupplyPosts = json.load(f)
+with open('economic.txt') as f:
+  economicPosts = json.load(f)
 with open('ids.txt') as f:
    ids = json.load(f)
 
@@ -65,20 +65,15 @@ def postpg():
 def signuppg():
     return render_template('signup.html')
 
-
+@app.route('/', methods=['GET'])
 @app.route('/signin', methods=['GET'])
 def signinpg():
     return render_template('signin.html')
 
 
 @app.route('/home', methods=['GET'])
-@app.route('/', methods=['GET'])
 def homepg():
-    return render_template('index.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
-
-@app.route('/fullScreenHome')
-def fullscrnhomepg():
-    return render_template('fullScreenHome.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
+    return render_template('index.html')
 
 
 @app.route('/submitpost')
@@ -111,11 +106,15 @@ def submitpost():
         post['fee'] = form.get('fee')
         socialPosts.append(post)
         print(socialPosts)
-    if post["type"] == "supplies":
+    if post["type"] == "Economic Inequality":
         post["name"] = form.get("name")
         post["email"] = form.get("email")
-        post["phone"] = form.get("phone")
-        schoolSupplyPosts.append(post)
+        post['lat'] = form.get('lat')
+        post['lng'] = form.get('lng')
+        post['subject'] = form.get('subject')
+        post['fee'] = form.get('fee')
+        economicPosts.append(post)
+        print(socialPosts)
     if post["type"] == "discussion":
         post["name"] = form.get("name")
         post["replies"] = []
@@ -176,17 +175,17 @@ def viewAllDiscussion():
     return render_template("viewAllDiscussions.html", discussionPosts=discussionPosts)
 
 
-@app.route('/viewAllSupplies')
-def viewAllSupplies():
-    return render_template("viewAllSupplies.html", supplies=schoolSupplyPosts)
+#@app.route('/viewAllSupplies')
+#def viewAllSupplies():
+#    return render_template("viewAllSupplies.html", supplies=schoolSupplyPosts)
 
 
-@app.route('/supplyRespond')
-def supplyRespond():
-    supply = int(request.args.get("id"))
-    for i in schoolSupplyPosts:
-        if i["id"] == supply:
-            return render_template("supplyRespond.html", post=i)
+#@app.route('/supplyRespond')
+#def supplyRespond():
+#    supply = int(request.args.get("id"))
+#    for i in schoolSupplyPosts:
+#        if i["id"] == supply:
+#            return render_template("supplyRespond.html", post=i)
 
 
 @app.route('/sendReply')
@@ -216,10 +215,10 @@ def save():
         convert_file.write(json.dumps(environmentalPosts, indent=5))
     with open('social.txt', 'w') as convert_file:
         convert_file.write(json.dumps(socialPosts, indent=5))
+    with open('economic.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(economicPosts, indent=5))
     with open('tutor.txt', 'w') as convert_file:
         convert_file.write(json.dumps(tutoringPosts, indent=5))
-    with open('supplies.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(schoolSupplyPosts, indent=5))
     with open('ids.txt', 'w') as convert_file:
         convert_file.write(json.dumps({'preid': preid}, indent=5))
     return redirect("/home")

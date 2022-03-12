@@ -94,27 +94,40 @@ function submit() {
     }).addTo(mymap);
     mymap.on('click', onMapClick);
   } else if(dropdown.value == "Economic Inequality") {
-    console.log("yes");
+    console.log("hi");
     document.getElementById("formthing").innerHTML = `
     <p>Title (include purpose)</p>
-    <input type="text" id="supplyPostTitle" name="supplyPostTitle" placeholder="Title">
+    <input type = "text" id = "economicPostTitle" name = "economicPostTitle" placeholder="Title">
     <br>
     <br>
     <p>(Description, include experiences, dates, goals, and special notes)</p>
-    <textarea rows="6" cols="50" id="supplyPostDescription" name="supplyPostDescription"></textarea>
+    <textarea rows = "6" cols = "50" id = "economicPostDescription" name = "economicPostDescription" placeholder="Description"></textarea>
     <br>
+    <br>
+    <p>Location (click on your general area)</p>
+    <div id="map" style="height:300px; width:300px"></div>
+    <br>
+    <p>Your fundraising goal</p>
+    <label>$ </label><input type = "text" id = "economicFee" name = "economicPostFee"><br>
     <br>
     <p>Your Name</p>
-    <input type="text" id="supplyPostName" name="supplyPostName" >
+    <input type = "text" id = "economicPostName" name = "economicPostName"><br>
     <br>
-    <br>
-
     <p>Your Email</p>
-    <input type="text" id="supplyPostEmail" name="supplyPostEmail" >
+    <input type = "text" id = "economicPostEmail" name = "economicPostEmail">
     <br>
     <br>
-    <button onclick="send_supply()" class="btn btn-danger">Submit</button>
-    `
+    <button onclick="send_economic()" class="btn btn-danger">Submit</button>    `
+    mymap = L.map('map').setView([47.61341768915884, -122.03149390175979], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA'
+    }).addTo(mymap);
+    mymap.on('click', onMapClick);
   } else if(dropdown.value == "Other") {
     console.log("no");
     document.getElementById("formthing").innerHTML = `
@@ -161,15 +174,15 @@ function send_social() {
   location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
 }
 
-function send_supply() {
+function send_economic() {
   var type = dropdown.value
-  console.log(document.getElementById("supplyPostTitle"))
-  var title = document.getElementById("supplyPostTitle").value
-  var description = document.getElementById("supplyPostDescription").value
-  var email = document.getElementById('supplyPostEmail').value
-  var phone = document.getElementById('supplyPostPhone').value
-  var name = document.getElementById('supplyPostName').value
-  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&email=" + email + "&phone=" + phone + "&name=" + name
+  var title = document.getElementById("economicPostTitle").value
+  var description = document.getElementById("economicPostDescription").value
+  var name = document.getElementById("economicPostName").value
+  var email = document.getElementById("economicPostEmail").value
+  var fee = document.getElementById('economicFee').value
+  var subject = document.getElementById("dropdown").value
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
 }
 
 function send_question() {
