@@ -19,7 +19,6 @@ function onMapClick(e) {
   lng = loc.lng
 }
 function submit() {
-  //window.dropdown = document.getElementById('dropdown');
   console.log("Hi")
   console.log(document.getElementById('dropdown').value)
   window.dropdown = document.getElementById('dropdown');
@@ -132,10 +131,9 @@ function send_environmental() {
     var description = document.getElementById("environmentalPostDescription").value
     var name = document.getElementById("environmentalPostName").value
     var email = document.getElementById("environmentalPostEmail").value
-    var phone = document.getElementById("environmentalPostPhone").value
-    var fee = document.getElementById('environmental').value
+    var fee = document.getElementById('environmentalFee').value
     var subject = document.getElementById("dropdown").value
-    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
+    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject + "&fee=" + fee
 
 }
 

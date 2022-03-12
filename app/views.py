@@ -93,7 +93,6 @@ def submitpost():
     }
     if post["type"] == "Environmental":
         post["name"] = form.get("name")
-        post["phone"] = form.get("phone")
         post["email"] = form.get("email")
         post['lat'] = form.get('lat')
         post['lng'] = form.get('lng')
@@ -118,7 +117,8 @@ def submitpost():
         post["replies"] = []
         discussionPosts.append(post)
     print(post)
-    return redirect("/home")
+    save()
+    return redirect("/save")
 
 
 @app.route('/viewTutorsSubjects')
@@ -216,4 +216,4 @@ def save():
         convert_file.write(json.dumps(schoolSupplyPosts, indent=5))
     with open('ids.txt', 'w') as convert_file:
         convert_file.write(json.dumps({'preid': preid}, indent=5))
-    return render_template('home.html')
+    return redirect("/home")
