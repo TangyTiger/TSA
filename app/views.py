@@ -206,7 +206,7 @@ def viewAllEnvironmental():
     for i in environmentalPosts:
         if i["subject"] == subject:
             filteredSubjects.append(i)
-    return render_template('environmentalViewing.html', tutorPosts=filteredSubjects)
+    return render_template('gallery.html', tutorPosts=filteredSubjects)
 
 @app.route('/save')
 def save():
