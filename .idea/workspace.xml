@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d1b7c6d-f800-4b7c-80a2-0c394f5d6c72" name="Default Changelist" comment="Changed Text" />
+    <list default="true" id="5d1b7c6d-f800-4b7c-80a2-0c394f5d6c72" name="Default Changelist" comment="Changed Text">
+      <change beforePath="$PROJECT_DIR$/.idea/TSA-final.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TSA-final.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/assets/img/homeScreen.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/assets/img/homeScreen.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/viewCarpoolSubjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/viewCarpoolSubjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,26 +132,26 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state x="421" y="91" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1647028175236" />
-    <state width="629" height="153" key="GridCell.Tab.0.bottom" timestamp="1647030600042">
+    <state width="629" height="153" key="GridCell.Tab.0.bottom" timestamp="1647054660230">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="629" height="153" key="GridCell.Tab.0.bottom/0.0.1280.672@0.0.1280.672" timestamp="1647030600042" />
-    <state width="629" height="153" key="GridCell.Tab.0.center" timestamp="1647030600042">
+    <state width="629" height="153" key="GridCell.Tab.0.bottom/0.0.1280.672@0.0.1280.672" timestamp="1647054660230" />
+    <state width="629" height="153" key="GridCell.Tab.0.center" timestamp="1647054660230">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="629" height="153" key="GridCell.Tab.0.center/0.0.1280.672@0.0.1280.672" timestamp="1647030600042" />
-    <state width="629" height="153" key="GridCell.Tab.0.left" timestamp="1647030600041">
+    <state width="629" height="153" key="GridCell.Tab.0.center/0.0.1280.672@0.0.1280.672" timestamp="1647054660230" />
+    <state width="629" height="153" key="GridCell.Tab.0.left" timestamp="1647054660229">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="629" height="153" key="GridCell.Tab.0.left/0.0.1280.672@0.0.1280.672" timestamp="1647030600041" />
-    <state width="629" height="153" key="GridCell.Tab.0.right" timestamp="1647030600042">
+    <state width="629" height="153" key="GridCell.Tab.0.left/0.0.1280.672@0.0.1280.672" timestamp="1647054660229" />
+    <state width="629" height="153" key="GridCell.Tab.0.right" timestamp="1647054660230">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="629" height="153" key="GridCell.Tab.0.right/0.0.1280.672@0.0.1280.672" timestamp="1647030600042" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1647028159047">
+    <state width="629" height="153" key="GridCell.Tab.0.right/0.0.1280.672@0.0.1280.672" timestamp="1647054660230" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1647047915148">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.672@0.0.1280.672" timestamp="1647028159047" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.672@0.0.1280.672" timestamp="1647047915148" />
     <state x="233" y="58" key="Vcs.Push.Dialog.v2" timestamp="1647030837657">
       <screen x="0" y="0" width="1280" height="672" />
     </state>

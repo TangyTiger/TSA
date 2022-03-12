@@ -125,7 +125,7 @@ def viewtutors():
     return render_template("viewTutorsSubjects.html")
 
 
-@app.route('/viewCarpoolSubjects')
+@app.route('/view')
 def viewcarpools():
     return render_template("viewCarpoolSubjects.html")
 
@@ -194,14 +194,14 @@ def sendReply():
             return redirect("/discussionsThread?id=" + str(id))
 
 
-@app.route('/view')
+"""@app.route('/view')
 def viewAllCarpools():
     subject = request.args.get("subject")
     filteredSubjects = []
     for i in carpoolPosts:
         if i["subject"] == subject:
             filteredSubjects.append(i)
-    return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)
+    return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)"""
 
 @app.route('/save')
 def save():
