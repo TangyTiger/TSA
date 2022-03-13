@@ -144,7 +144,7 @@ def viewEnvironmental():
 @app.route('/viewSocialSubjects')
 def viewSocial():
     topic = request.args.get("title")
-    return render_template("socialViewing.html", socialPosts=socialPosts)
+    return render_template("viewSocial.html", socialPosts=socialPosts)
 
 
 @app.route('/tutorViewing')

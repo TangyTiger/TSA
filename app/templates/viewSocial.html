@@ -23,11 +23,11 @@
         <nav class="navbar navbar-dark align-items-start sidebar accordion bg-gradient-primary p-0" style="background: rgb(245,120,93);">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
+                    <div class="sidebar-brand-text mx-3"><span></span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
-                <ul  onclick = "viewEnvironmentalPost(this.id)" class="navbar-nav text-light" id="accordionSidebar">
-                    {% for post in environmentalPosts%}
+                <ul  onclick = "viewSocialPost(this.id)" class="navbar-nav text-light" id="accordionSidebar">
+                    {% for post in socialPosts%}
                     <li class="nav-item"><a class="nav-link" ><i class="fas fa-user"></i><span>{{post["title"]}}</span></a></li>
                     {% endfor%}
                 </ul>
