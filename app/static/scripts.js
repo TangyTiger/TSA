@@ -495,16 +495,16 @@ function viewSocialPost(data) {
     success: function (data, status) {
       window._title = data.title;
       window._name = data.name;
-      window._description = data.description;
       window._fee = data.fee;
+      window._description = data.description;
       window._email = data.email;
       window._name = data.name;
       window._lat = data.lat;
       window._lng = data.lng;
-      console.log(window._title);
-      document.getElementById("column2").innerHTML =
+      console.log(window._title, window._fee)
+      document.getElementById("innerContent").innerHTML =
         `
-        <div>
+        <div style="padding:15px">
         <h1 style="font-size: 50px">` +
         window._title +
         `</h1>
@@ -517,14 +517,12 @@ function viewSocialPost(data) {
         window._name +
         `</p>
         <br>
-        <p style="font-size: 25px">Fundraising goal: ` + 
-        window._fee 
+        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
         `</p>
         </div>
-        <div id="map" style="width:400px; height:350px"></div>
+        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
-      console.log(data);
-      mymap = L.map("map").setView([window._lat, window._lng], 13);
+      window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         {
@@ -537,24 +535,172 @@ function viewSocialPost(data) {
           accessToken:
             "sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA",
         }
-      ).addTo(mymap);
+      ).addTo(mymap1);
+
       marker = new L.circle([window._lat, window._lng], {
         color: "red",
         fill: "f03",
         fillOpacity: 0.4,
         radius: 1300,
-      }).addTo(mymap);
+      }).addTo(mymap1);
       marker.bindPopup("Area").openPopup();
-      document.getElementById("contactInfo").innerHTML =
-        `<br>
-           <p style="">Email: <a href="mailto: ` +
-        window._email +
-        `">` +
-        window._email +
-        `</a><br><br>Name: ` +
+      setInterval(function () {
+        mymap1.invalidateSize();
+      }, 100);
+      // document.getElementById("contactInfo").innerHTML =
+      //   `<br>
+      //      <p style="">Email: <a href="mailto: ` +
+      //   window._email +
+      //   `">` +
+      //   window._email +
+      //   `</a><br><br>Name: ` +
+      //   window._name +
+      //   `</p>
+      //   `;
+    },
+  });
+}
+
+function viewEconomicPost(data) {
+  $.get({
+    url: "/getEconomicPost?id=" + data,
+    success: function (data, status) {
+      window._title = data.title;
+      window._name = data.name;
+      window._fee = data.fee;
+      window._description = data.description;
+      window._email = data.email;
+      window._name = data.name;
+      window._lat = data.lat;
+      window._lng = data.lng;
+      console.log(window._title, window._fee)
+      document.getElementById("innerContent").innerHTML =
+        `
+        <div style="padding:15px">
+        <h1 style="font-size: 50px">` +
+        window._title +
+        `</h1>
+        <br>
+        <p style="font-size: 25px">` +
+        window._description +
+        `</p>
+        <br>
+        <p style="font-size: 25px">Organizer: ` +
         window._name +
         `</p>
+        <br>
+        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
+        `</p>
+        </div>
+        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
+      window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            "sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA",
+        }
+      ).addTo(mymap1);
+
+      marker = new L.circle([window._lat, window._lng], {
+        color: "red",
+        fill: "f03",
+        fillOpacity: 0.4,
+        radius: 1300,
+      }).addTo(mymap1);
+      marker.bindPopup("Area").openPopup();
+      setInterval(function () {
+        mymap1.invalidateSize();
+      }, 100);
+      // document.getElementById("contactInfo").innerHTML =
+      //   `<br>
+      //      <p style="">Email: <a href="mailto: ` +
+      //   window._email +
+      //   `">` +
+      //   window._email +
+      //   `</a><br><br>Name: ` +
+      //   window._name +
+      //   `</p>
+      //   `;
+    },
+  });
+}
+
+function viewOtherPost(data) {
+  $.get({
+    url: "/getOtherPost?id=" + data,
+    success: function (data, status) {
+      window._title = data.title;
+      window._name = data.name;
+      window._fee = data.fee;
+      window._description = data.description;
+      window._email = data.email;
+      window._name = data.name;
+      window._lat = data.lat;
+      window._lng = data.lng;
+      console.log(window._title, window._fee)
+      document.getElementById("innerContent").innerHTML =
+        `
+        <div style="padding:15px">
+        <h1 style="font-size: 50px">` +
+        window._title +
+        `</h1>
+        <br>
+        <p style="font-size: 25px">` +
+        window._description +
+        `</p>
+        <br>
+        <p style="font-size: 25px">Organizer: ` +
+        window._name +
+        `</p>
+        <br>
+        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
+        `</p>
+        </div>
+        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
+        `;
+      window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            "sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA",
+        }
+      ).addTo(mymap1);
+
+      marker = new L.circle([window._lat, window._lng], {
+        color: "red",
+        fill: "f03",
+        fillOpacity: 0.4,
+        radius: 1300,
+      }).addTo(mymap1);
+      marker.bindPopup("Area").openPopup();
+      setInterval(function () {
+        mymap1.invalidateSize();
+      }, 100);
+      // document.getElementById("contactInfo").innerHTML =
+      //   `<br>
+      //      <p style="">Email: <a href="mailto: ` +
+      //   window._email +
+      //   `">` +
+      //   window._email +
+      //   `</a><br><br>Name: ` +
+      //   window._name +
+      //   `</p>
+      //   `;
     },
   });
 }

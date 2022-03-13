@@ -37,8 +37,8 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    {% for post in socialPosts%}
-                    <li onclick = "viewSocialPost(this.id)" class="nav-item" id="{{post['id']}}"><a class="nav-link" ><i class="fas fa-user"></i><span>{{post["title"]}}</span></a></li>
+                    {% for post in economicPosts%}
+                    <li onclick = "viewEconomicPost(this.id)" class="nav-item" id="{{post['id']}}"><a class="nav-link" ><i class="fas fa-user"></i><span>{{post["title"]}}</span></a></li>
                     {% endfor%}
                 </ul>
 
