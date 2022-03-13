@@ -139,7 +139,12 @@ def viewtutors():
 @app.route('/viewEnvironmentalSubjects')
 def viewEnvironmental():
     topic = request.args.get("title")
-    return render_template("tutorViewing.html", environmentalPosts=environmentalPosts)
+    return render_template("EnvironmentalViewing.html", environmentalPosts=environmentalPosts)
+
+@app.route('/viewSocialSubjects')
+def viewSocial():
+    topic = request.args.get("title")
+    return render_template("socialViewing.html", socialPosts=socialPosts)
 
 
 @app.route('/tutorViewing')
