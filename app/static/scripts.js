@@ -358,7 +358,7 @@ function viewEnvironmentalPost(data) {
       window._lat = data.lat;
       window._lng = data.lng;
       console.log(window._title);
-      document.getElementById("column2").innerHTML =
+      document.getElementById("content").innerHTML =
         `
         <div>
         <h1 style="font-size: 50px">` +
