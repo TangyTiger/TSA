@@ -348,17 +348,16 @@ function viewTutorPost(data) {
 
 function viewEnvironmentalPost(data) {
   $.get({
-    url: "/getEnvironmentalPost?id=" + data,
-    success: function (data, status) {
-      window._title = data.title;
-      window._name = data.name;
-      window._description = data.description;
-      window._email = data.email;
-      window._name = data.name;
-      window._lat = data.lat;
-      window._lng = data.lng;
-      console.log(window._title);
-      document.getElementById("content").innerHTML =
+    url: "/getEnvironmentalPost?id=31",
+    success: function (data1, status) {
+      window._title = data1.title;
+      window._name = data1.name;
+      window._description = data1.description;
+      window._email = data1.email;
+      window._name = data1.name;
+      window._lat = data1.lat;
+      window._lng = data1.lng;
+      document.getElementById("innerContent").innerHTML =
         `
         <div>
         <h1 style="font-size: 50px">` +
@@ -373,10 +372,9 @@ function viewEnvironmentalPost(data) {
         window._name +
         `</p>
         </div>
-        <div id="map" style="width:400px; height:350px"></div>
+        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
-      console.log(data);
-      mymap = L.map("map").setView([window._lat, window._lng], 13);
+      window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         {
@@ -389,26 +387,36 @@ function viewEnvironmentalPost(data) {
           accessToken:
             "sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA",
         }
-      ).addTo(mymap);
+      ).addTo(mymap1);
+      
       marker = new L.circle([window._lat, window._lng], {
         color: "red",
         fill: "f03",
         fillOpacity: 0.4,
         radius: 1300,
-      }).addTo(mymap);
+      }).addTo(mymap1);
       marker.bindPopup("Area").openPopup();
-      document.getElementById("contactInfo").innerHTML =
-        `<br>
-           <p style="">Email: <a href="mailto: ` +
-        window._email +
-        `">` +
-        window._email +
-        `</a><br><br>Name: ` +
-        window._name +
-        `</p>
-        `;
+      setInterval(function () {
+        mymap1.invalidateSize();
+     }, 100);
+      // document.getElementById("contactInfo").innerHTML =
+      //   `<br>
+      //      <p style="">Email: <a href="mailto: ` +
+      //   window._email +
+      //   `">` +
+      //   window._email +
+      //   `</a><br><br>Name: ` +
+      //   window._name +
+      //   `</p>
+      //   `;
     },
   });
+}
+
+
+function fixMap() {
+  console.log("fixed");
+  mymap.invalidateSize();
 }
 
 /* function viewSocialPost(data) {

@@ -57,7 +57,6 @@ with open('ids.txt') as f:
 
 preid = ids['preid']
 
-
 @app.route('/post', methods=['GET'])
 def postpg():
     return render_template('post.html')
@@ -138,7 +137,6 @@ def viewtutors():
 
 @app.route('/viewEnvironmentalSubjects')
 def viewEnvironmental():
-    topic = request.args.get("title")
     return render_template("viewEnvironmental.html", environmentalPosts=environmentalPosts)
 
 @app.route('/viewSocialSubjects')
@@ -168,10 +166,11 @@ def getTutorPost():
 
 @app.route('/getEnvironmentalPost')
 def getEnvironmentalPost():
-    data = int(request.args.get("id"))
-    for i in environmentalPosts:
-        if i["id"] == data:
-            return jsonify(i)
+   print(request.args.get("id"));
+   data = int(request.args.get("id"))
+   for i in environmentalPosts:
+       if i["id"] == data:
+           return jsonify(i)
 
 
 @app.route('/discussionsThread')
