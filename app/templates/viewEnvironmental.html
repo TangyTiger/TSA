@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="static/ViewsPageThings/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="static/ViewsPageThings/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/ViewsPageThings/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/ViewsPageThings/assets/fonts/fontawesome5-overrides.min.css">
+    <script src="/static/scripts.js"></script>
+    <style>
+        #nav-item{
+            color: rgb(245,120,93);
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar accordion bg-gradient-primary p-0" style="background: rgb(245,120,93);">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul  onclick = "viewEnvironmentalPost(this.id)" class="navbar-nav text-light" id="accordionSidebar">
+                    {% for post in environmentalPosts%}
+                    <li class="nav-item"><a class="nav-link" ><i class="fas fa-user"></i><span>{{post["title"]}}</span></a></li>
+                    {% endfor%}
+                </ul>
+                
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand-lg" id="mainNav">
+                    <div class="container"><a class="navbar-brand" href="/home" style="color: rgb(245,120,93);"><b>Change.org</b></a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/post">Post</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/view">View</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <h1 style="padding: 11px;margin: 0px;">Heading</h1>
+                <p style="padding: 15px;">Paragraph</p>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p class="mb-0"></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer" style="padding: 0px;margin: 0px 0px 16px;"></figcaption>
+                </figure>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="static/ViewsPageThings/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/ViewsPageThings/assets/js/theme.js"></script>
+</body>
+
+</html>

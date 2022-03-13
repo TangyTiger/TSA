@@ -2,13 +2,19 @@
 <html lang="en" dir="ltr">
 <head>
 
-    <title>View Tutors</title>
+    <title>View Carpools</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
     <script src="/static/scripts.js"></script>
     <style>
       #column1, #contactInfo {
@@ -50,8 +56,8 @@
     </nav>
   <div class="row w-100 m-0">
   <div id = "column1" class="col-2 p-0" style = "overflow: auto">
-    {% for post in tutorPosts%}
-    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: auto; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewTutorPost(this.id)">
+    {% for post in environmentalPosts%}
+    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: auto; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewEnvironmentalPost(this.id)">
       {{post["title"]}}
     </div>
     {% endfor%}

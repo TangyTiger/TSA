@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <script type="text/javascript" src="/static/scripts.js"></script>
+<head>
+
+    <title>View Carpools</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -14,9 +15,24 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
-    <title>Post Something</title>
-  </head>
-  <body class="bg-light">
+    <script src="/static/scripts.js"></script>
+    <style>
+      #column1, #contactInfo {
+        background: #d0d0df;
+        border-right: 2px solid grey;
+        border-left: 2px solid grey;
+        height: calc(100vh - 80px);
+      }
+      #column2 {
+        background: f0f011;
+      }
+
+      .tutorPosts {
+      display: block;
+      }
+    </style>
+</head>
+<body class="p-0">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
       <!-- Brand/logo -->
       <a class="navbar-brand" href="/home">
@@ -38,19 +54,19 @@
         </li>
       </ul>
     </nav>
-<div class="container-fluid bg-light p-3">
-  <select class="btn btn-danger" name="type" id="dropdown">
-      <option value="">Please Select...</option>
-      <option value="Environmental">Environmental</option>
-      <option value="Social Inequality">Social Inequality</option>
-      <option value="Economic Inequality">Economic Inequality</option>
-      <option value="Other">Other</option>
-    </select>
-    <button type="button" name="button" class="btn btn-success" onclick="submit();">Continue</button>
-    <br><br><br>
-    <div class="" id='formthing'>
-
+  <div class="row w-100 m-0">
+  <div id = "column1" class="col-2 p-0" style = "overflow: auto">
+    {% for post in socialPosts%}
+    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: auto; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewSocialPost(this.id)">
+      {{post["title"]}}
     </div>
-</div>
+    {% endfor%}
+  </div>
+  <div class="col-8 p-3" id = "column2" style = "overflow: auto">
+
+  </div>
+  <div class="col-2" id = "contactInfo" style = "overflow: auto">
+
+  </div>
+  </div>
 </body>
-</html>
