@@ -1,9 +1,6 @@
 from app import app
 from flask import request, session, jsonify, render_template, redirect
 import json
-import os
-import stripe
-
 
 # discussionPosts = [
 #     {"title": " who r u", "name": "Sarthak Lodha", "id": 1, "replies": ["test", "test2"]},
@@ -59,7 +56,6 @@ with open('ids.txt') as f:
    ids = json.load(f)
 
 preid = ids['preid']
-
 
 
 @app.route('/post', methods=['GET'])
