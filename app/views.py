@@ -137,6 +137,7 @@ def viewtutors():
 
 @app.route('/viewEnvironmentalSubjects')
 def viewEnvironmental():
+    print(environmentalPosts)
     return render_template("viewEnvironmental.html", environmentalPosts=environmentalPosts)
 
 @app.route('/viewSocialSubjects')
@@ -166,7 +167,7 @@ def getTutorPost():
 
 @app.route('/getEnvironmentalPost')
 def getEnvironmentalPost():
-   print(request.args.get("id"));
+   print(request.args.get("id"))
    data = int(request.args.get("id"))
    for i in environmentalPosts:
        if i["id"] == data:

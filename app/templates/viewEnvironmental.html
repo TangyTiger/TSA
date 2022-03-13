@@ -38,7 +38,7 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     {% for post in environmentalPosts%}
-                    <li onclick = "viewEnvironmentalPost(this.id)" class="nav-item" id="{{post['title']}}"><a class="nav-link" ><i class="fas fa-user"></i><span>{{post["title"]}}</span></a></li>
+                    <li onclick = "viewEnvironmentalPost(this.id)" class="nav-item" id="{{post['id']}}"><a class="nav-link" ><i class="fas fa-user"></i><span>{{post["title"]}}</span></a></li>
                     {% endfor%}
                 </ul>
 
@@ -58,13 +58,12 @@
                         </div>
                     </div>
                 </nav>
-                <div id="innerContent"><h1 id = "title" xstyle="padding: 11px;margin: 0px;">Heading</h1>
-                <p style="padding: 15px;">Paragraph</p>
+                <div id="innerContent"><h1 id = "title" xstyle="padding: 11px;margin: 0px;">Click on a Post to View Information</h1>
+                <p style="padding: 15px;"></p>
                 <figure>
                     <blockquote class="blockquote">
                         <p class="mb-0"></p>
                     </blockquote>
-                    <figcaption class="blockquote-footer" style="padding: 0px;margin: 0px 0px 16px;"></figcaption>
                 </figure>
             </div>
             </div>

@@ -348,18 +348,20 @@ function viewTutorPost(data) {
 
 function viewEnvironmentalPost(data) {
   $.get({
-    url: "/getEnvironmentalPost?id=31",
-    success: function (data1, status) {
-      window._title = data1.title;
-      window._name = data1.name;
-      window._description = data1.description;
-      window._email = data1.email;
-      window._name = data1.name;
-      window._lat = data1.lat;
-      window._lng = data1.lng;
+    url: "/getEnvironmentalPost?id=" + data,
+    success: function (data, status) {
+      window._title = data.title;
+      window._name = data.name;
+      window._fee = data.fee;
+      window._description = data.description;
+      window._email = data.email;
+      window._name = data.name;
+      window._lat = data.lat;
+      window._lng = data.lng;
+      console.log(window._title, window._fee)
       document.getElementById("innerContent").innerHTML =
         `
-        <div>
+        <div style="padding:15px">
         <h1 style="font-size: 50px">` +
         window._title +
         `</h1>
@@ -368,8 +370,11 @@ function viewEnvironmentalPost(data) {
         window._description +
         `</p>
         <br>
-        <p style="font-size: 25px">Driver: ` +
+        <p style="font-size: 25px">Organizer: ` +
         window._name +
+        `</p>
+        <br>
+        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
         `</p>
         </div>
         <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
@@ -388,7 +393,7 @@ function viewEnvironmentalPost(data) {
             "sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA",
         }
       ).addTo(mymap1);
-      
+
       marker = new L.circle([window._lat, window._lng], {
         color: "red",
         fill: "f03",
@@ -398,7 +403,7 @@ function viewEnvironmentalPost(data) {
       marker.bindPopup("Area").openPopup();
       setInterval(function () {
         mymap1.invalidateSize();
-     }, 100);
+      }, 100);
       // document.getElementById("contactInfo").innerHTML =
       //   `<br>
       //      <p style="">Email: <a href="mailto: ` +
@@ -412,7 +417,6 @@ function viewEnvironmentalPost(data) {
     },
   });
 }
-
 
 function fixMap() {
   console.log("fixed");
@@ -492,6 +496,7 @@ function viewSocialPost(data) {
       window._title = data.title;
       window._name = data.name;
       window._description = data.description;
+      window._fee = data.fee;
       window._email = data.email;
       window._name = data.name;
       window._lat = data.lat;
@@ -508,8 +513,12 @@ function viewSocialPost(data) {
         window._description +
         `</p>
         <br>
-        <p style="font-size: 25px">Driver: ` +
+        <p style="font-size: 25px">Organizer: ` +
         window._name +
+        `</p>
+        <br>
+        <p style="font-size: 25px">Fundraising goal: ` + 
+        window._fee 
         `</p>
         </div>
         <div id="map" style="width:400px; height:350px"></div>
