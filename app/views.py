@@ -1,6 +1,49 @@
 from app import app
-from flask import request, session, jsonify, render_template, redirect
+from flask import request, session, jsonify, render_template, redirect, abort
 import json
+import stripe, os
+
+stripe.api_key = 'sk_test_51Kcy9ADb39iQQocLnUoJnhbP9z8wx8KMkJq1fNNKK303iFstCHKaPRPGBhQ90TqoZagUpQjiWEdhGR2K30iP9QMI00bAhXmBYv'
+
+def calculate_order_amount(items):
+    # Replace this constant with a calculation of the order's amount
+    # Calculate the order total on the server to prevent
+    # people from directly manipulating the amount on the client
+    return 1400
+
+@app.route('/try_pay', methods=['GET'])
+def try_pay():
+    return render_template("checkout.html")
+
+@app.route('/create-payment-intent', methods=['POST'])
+def create_payment():
+    try:
+        data = json.loads(request.data)
+        # Create a PaymentIntent with the order amount and currency
+        intent = stripe.PaymentIntent.create(
+            amount=calculate_order_amount(data['items']),
+            currency='eur',
+            automatic_payment_methods={
+                'enabled': True,
+            },
+        )
+        return jsonify({
+            'clientSecret': intent['client_secret']
+        })
+    except Exception as e:
+        return jsonify(error=str(e)), 403
+
+products = {
+    'megatutorial': {
+        'name': 'The Flask Mega-Tutorial',
+        'price': 3900,
+    },
+    'support': {
+        'name': 'Python 1:1 support',
+        'price': 20000,
+        'per': 'hour',
+    },
+}
 
 # discussionPosts = [
 #     {"title": " who r u", "name": "Sarthak Lodha", "id": 1, "replies": ["test", "test2"]},
@@ -137,7 +180,7 @@ def viewtutors():
 
 @app.route('/viewEnvironmentalSubjects')
 def viewEnvironmental():
-    return render_template("viewEnvironmental.html", environmentalPosts=environmentalPosts)
+    return render_template("viewEnvironmental.html", environmentalPosts=environmentalPosts, products=products)
 
 @app.route('/viewSocialSubjects')
 def viewSocial():
