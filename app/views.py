@@ -184,9 +184,15 @@ def viewEnvironmental():
 
 @app.route('/viewSocialSubjects')
 def viewSocial():
-    topic = request.args.get("title")
     return render_template("viewSocial.html", socialPosts=socialPosts)
 
+@app.route('/viewEconomicSubjects')
+def viewEconomic():
+    return render_template("viewEconomic.html", economicPosts=economicPosts)
+
+@app.route('/viewOtherSubjects')
+def viewOther():
+    return render_template("viewOther.html", otherPosts=otherPosts)
 
 @app.route('/tutorViewing')
 def viewtutorslist():
@@ -209,12 +215,35 @@ def getTutorPost():
 
 @app.route('/getEnvironmentalPost')
 def getEnvironmentalPost():
-   print(request.args.get("id"));
+   print(request.args.get("id"))
    data = int(request.args.get("id"))
    for i in environmentalPosts:
        if i["id"] == data:
            return jsonify(i)
 
+@app.route('/getSocialPost')
+def getSocialPost():
+   print(request.args.get("id"))
+   data = int(request.args.get("id"))
+   for i in socialPosts:
+       if i["id"] == data:
+           return jsonify(i)
+
+@app.route('/getEconomicPost')
+def getEconomicPost():
+   print(request.args.get("id"))
+   data = int(request.args.get("id"))
+   for i in economicPosts:
+       if i["id"] == data:
+           return jsonify(i)
+
+@app.route('/getOtherPost')
+def getOtherPost():
+   print(request.args.get("id"))
+   data = int(request.args.get("id"))
+   for i in otherPosts:
+       if i["id"] == data:
+           return jsonify(i)
 
 @app.route('/discussionsThread')
 def answerQuestions():
