@@ -5,24 +5,28 @@ import stripe, os
 
 stripe.api_key = 'sk_test_51Kcy9ADb39iQQocLnUoJnhbP9z8wx8KMkJq1fNNKK303iFstCHKaPRPGBhQ90TqoZagUpQjiWEdhGR2K30iP9QMI00bAhXmBYv'
 
-def calculate_order_amount(items):
+def calculate_order_amount_1(items):
     # Replace this constant with a calculation of the order's amount
     # Calculate the order total on the server to prevent
     # people from directly manipulating the amount on the client
-    return 1400
+    #donation = request.form['donationAmount']
+    return 1500
 
 @app.route('/try_pay', methods=['GET'])
 def try_pay():
     return render_template("checkout.html")
 
-@app.route('/create-payment-intent', methods=['POST'])
+@app.route('/create-payment-intent', methods=['POST', 'GET'])
 def create_payment():
     try:
         data = json.loads(request.data)
+        #print(data)
+        #donation = request.args.get("donationAmount", type=str)
+        #print(donation)
         # Create a PaymentIntent with the order amount and currency
         intent = stripe.PaymentIntent.create(
-            amount=calculate_order_amount(data['items']),
-            currency='eur',
+            amount=calculate_order_amount_1(data['items']),
+            currency='usd',
             automatic_payment_methods={
                 'enabled': True,
             },
@@ -44,43 +48,6 @@ products = {
         'per': 'hour',
     },
 }
-
-# discussionPosts = [
-#     {"title": " who r u", "name": "Sarthak Lodha", "id": 1, "replies": ["test", "test2"]},
-#     {"title": " test num 2", "name": "aditya shah", "id": 2},
-#     {"title": "test number 3", "name": "Sarthak Lodha", "id": 3},
-#     {"title": " who r u", "name": "Sarthak Lodha", "id": 4}
-# ]
-#
-# schoolSupplyPosts = [
-#     {
-#         "title": "Need screwdriver",
-#         "description": "jioadfjilo jioad aoegjg oszh h a;ofiui t paiwfr hioas",
-#         "name": "Aditya Shah",
-#         "id": 5,
-#         "email": "adityashah@adityashah.com",
-#         "phone": 1028561933
-#     }
-# ]
-# carpoolPosts = []
-# tutoringPosts = [
-#     {
-#         "title": "Math Help",
-#         "description": "some stuff here",
-#         "email": "asdf@gmail.com",
-#         "fee": "18",
-#         "phone": 1234567890, "id": 6,
-#         "subject": "math"
-#     },
-#     {
-#         "title": "Science Help",
-#         "description": "a description",
-#         "email": "jdoe@gmail.com",
-#         "fee": "20",
-#         "phone": 1029384756, "id": 7,
-#         "subject": "science"
-#     }
-# ]
 
 
 with open('environmental.txt') as f:

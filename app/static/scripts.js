@@ -376,6 +376,12 @@ function viewEnvironmentalPost(data) {
         <br>
         <p style="font-size: 25px">Fundraising goal: $` + window._fee +
         `</p>
+        <form id="form" name="form" action="/try_pay" method="post">
+        <br>
+        <br>
+        <button> <a href="/try_pay"> Donate $15 </a></button>
+        </form>
+
         </div>
         <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
@@ -519,6 +525,11 @@ function viewSocialPost(data) {
         <br>
         <p style="font-size: 25px">Fundraising goal: $` + window._fee +
         `</p>
+        <form id="form" name="form" action="/try_pay" method="post">
+        <br>
+        <br>
+        <button> <a href="/try_pay"> Donate $15 </a></button>
+        </form>
         </div>
         <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
@@ -584,6 +595,11 @@ function viewEconomicPost(data) {
         <p style="font-size: 25px">` +
         window._description +
         `</p>
+        <form id="form" name="form" action="/try_pay" method="post">
+        <br>
+        <br>
+        <button> <a href="/try_pay"> Donate $15 </a></button>
+        </form>
         <br>
         <p style="font-size: 25px">Organizer: ` +
         window._name +
@@ -663,6 +679,11 @@ function viewOtherPost(data) {
         <br>
         <p style="font-size: 25px">Fundraising goal: $` + window._fee +
         `</p>
+        <form id="form" name="form" action="/try_pay" method="post">
+        <br>
+        <br>
+        <button> <a href="/try_pay"> Donate $15 </a></button>
+        </form>
         </div>
         <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
