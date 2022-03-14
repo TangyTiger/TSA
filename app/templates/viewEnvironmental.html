@@ -32,9 +32,7 @@
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar accordion bg-gradient-primary p-0" style="background: rgb(245,120,93);">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
-                </a>
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);"></i></div>             </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     {% for post in environmentalPosts%}
@@ -45,6 +43,7 @@
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
+        <div id="contentWOdicussion">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand-lg" id="mainNav">
                     <div class="container"><a class="navbar-brand" href="/home" style="color: rgb(245,120,93);"><b>Change.org</b></a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
@@ -60,6 +59,17 @@
                 </nav>
                 <div id="innerContent"><h1 id = "title" xstyle="padding: 11px;margin: 0px;">Click on a Post to View Information</h1>
                 <p style="padding: 15px;"></p>
+                </div>
+                    <div id="disqus_thread"></div>
+                    <script>
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://community-org.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                 <figure>
                     <blockquote class="blockquote">
                         <p class="mb-0"></p>
@@ -77,6 +87,8 @@
 
     <script src="static/ViewsPageThings/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="static/ViewsPageThings/assets/js/theme.js"></script>
+    <script id="dsq-count-scr" src="//community-org.disqus.com/count.js" async></script>
+
 </body>
 
 </html>
