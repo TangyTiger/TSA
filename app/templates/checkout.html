@@ -5,12 +5,30 @@
     <title>Accept a payment</title>
     <meta name="description" content="A demo of a payment on Stripe" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="static/checkout.css" />
+    <link rel="stylesheet" href="static/checkout.css" /><link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <script src="https://js.stripe.com/v3/"></script>
     <script src="static/checkout.js" defer></script>
   </head>
   <body>
     <!-- Display a payment form -->
+    <!--
+    <nav style="text-align: center" class="navbar navbar-light navbar-expand-lg" id="mainNav">
+      <div class="container"><a class="navbar-brand" href="/home" style="color: rgb(245,120,93);"><b>commUNITY</b></a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul style="" class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link .text-dark" href="home#about">About</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/post">Post</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/view">View</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  -->
     <form id="payment-form">
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
@@ -21,5 +39,10 @@
       </button>
       <div id="payment-message" class="hidden"></div>
     </form>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/assets/js/creative.js"></script>
   </body>
 </html>

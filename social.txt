@@ -46,5 +46,17 @@
           "lng": "-122.01824881849463",
           "subject": "Social Inequality",
           "fee": "31"
+     },
+     {
+          "description": "Especially in Indian Americans. ",
+          "title": "End Social Inequality",
+          "type": "Social Inequality",
+          "name": "Meghna Shah",
+          "id": 45,
+          "email": "shahmeghna@outlook.com",
+          "lat": "47.65393576418546",
+          "lng": "-122.08182596135885",
+          "subject": "Social Inequality",
+          "fee": "500"
      }
 ]
