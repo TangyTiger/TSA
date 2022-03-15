@@ -26,27 +26,27 @@ function submit() {
     console.log("hi");
     document.getElementById("formthing").innerHTML = `
     <p>Title (include purpose)</p>
-    <input type = "text" id = "environmentalPostTitle" name = "environmentalPostTitle" placeholder="Title">
+    <input type = "text" id = "environmentalPostTitle" name = "environmentalPostTitle" placeholder="Enter title here">
     <br>
     <br>
     <p>(Description, include experiences, dates, goals, and special notes)</p>
-    <textarea rows = "6" cols = "50" id = "environmentalPostDescription" name = "environmentalPostDescription" placeholder="Description"></textarea>
+    <textarea rows = "6" cols = "50" id = "environmentalPostDescription" name = "environmentalPostDescription" placeholder="Enter description here"></textarea>
     <br>
     <br>
     <p>Location (click on your general area)</p>
-    <div id="map" style="height:300px; width:300px"></div>
+    <div id="map" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height:300px; width:300px;"></div>
     <br>
     <p>Your fundraising goal</p>
-    <label>$ </label><input type = "text" id = "environmentalFee" name = "environmentalPostFee"><br>
+    <label>$ </label><input type = "text" id = "environmentalFee" name = "environmentalPostFee" placeholder="Enter goal"><br>
     <br>
     <p>Your Name</p>
-    <input type = "text" id = "environmentalPostName" name = "environmentalPostName"><br>
+    <input type = "text" id = "environmentalPostName" name = "environmentalPostName" placeholder="Enter name"><br>
     <br>
     <p>Your Email</p>
-    <input type = "text" id = "environmentalPostEmail" name = "environmentalPostEmail">
+    <input type = "text" id = "environmentalPostEmail" name = "environmentalPostEmail" placeholder="Enter email">
     <br>
     <br>
-    <button onclick="send_environmental()" class="btn btn-danger">Submit</button>    `;
+    <button style="background-color:rgb(245,120,93); text-color:rgb(255, 255, 255)" onclick="send_environmental()" class="btn ">Submit</button>    `;
     mymap = L.map("map").setView([47.61341768915884, -122.03149390175979], 13);
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -66,27 +66,27 @@ function submit() {
     console.log("bye");
     document.getElementById("formthing").innerHTML = `
     <p>Title (include purpose)</p>
-    <input type = "text" id = "socialPostTitle" name = "socialPostTitle" placeholder="Title">
+    <input type = "text" id = "socialPostTitle" name = "socialPostTitle" placeholder="Enter title here">
     <br>
     <br>
     <p>(Description, include experiences, dates, goals, and special notes)</p>
-    <textarea rows = "6" cols = "50" id = "socialPostDescription" name = "socialPostDescription" placeholder="Description"></textarea>
+    <textarea rows = "6" cols = "50" id = "socialPostDescription" name = "socialPostDescription" placeholder="Enter description here"></textarea>
     <br>
     <br>
     <p>Location (click on your general area)</p>
-    <div id="map" style="height:300px; width:300px"></div>
+     <div id="map" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height:300px; width:300px;"></div>
     <br>
     <p>Your fundraising goal</p>
-    <label>$ </label><input type = "text" id = "socialFee" name = "socialPostFee"><br>
+    <label>$ </label><input type = "text" id = "socialFee" name = "socialPostFee" placeholder="Enter goal"><br>
     <br>
     <p>Your Name</p>
-    <input type = "text" id = "socialPostName" name = "socialPostName"><br>
+    <input type = "text" id = "socialPostName" name = "socialPostName" placeholder="Enter goal"><br>
     <br>
     <p>Your Email</p>
-    <input type = "text" id = "socialPostEmail" name = "socialPostEmail">
+    <input type = "text" id = "socialPostEmail" name = "socialPostEmail" placeholder="Enter email">
     <br>
     <br>
-    <button onclick="send_social()" class="btn btn-danger">Submit</button>    
+    <button onclick="send_social()" style="background-color:rgb(245,120,93); text-color:rgb(255, 255, 255)" class="btn">Submit</button>    
     `;
     mymap = L.map("map").setView([47.61341768915884, -122.03149390175979], 13);
     L.tileLayer(
@@ -107,27 +107,27 @@ function submit() {
     console.log("hi");
     document.getElementById("formthing").innerHTML = `
     <p>Title (include purpose)</p>
-    <input type = "text" id = "economicPostTitle" name = "economicPostTitle" placeholder="Title">
+    <input type = "text" id = "economicPostTitle" name = "economicPostTitle" placeholder="Enter title here">
     <br>
     <br>
     <p>(Description, include experiences, dates, goals, and special notes)</p>
-    <textarea rows = "6" cols = "50" id = "economicPostDescription" name = "economicPostDescription" placeholder="Description"></textarea>
+    <textarea rows = "6" cols = "50" id = "economicPostDescription" name = "economicPostDescription" placeholder="Enter description here"></textarea>
     <br>
     <br>
     <p>Location (click on your general area)</p>
-    <div id="map" style="height:300px; width:300px"></div>
+     <div id="map" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height:300px; width:300px;"></div>
     <br>
     <p>Your fundraising goal</p>
-    <label>$ </label><input type = "text" id = "economicFee" name = "economicPostFee"><br>
+    <label>$ </label><input type = "text" id = "economicFee" name = "economicPostFee" placeholder = "Enter goal"><br>
     <br>
     <p>Your Name</p>
-    <input type = "text" id = "economicPostName" name = "economicPostName"><br>
+    <input type = "text" id = "economicPostName" name = "economicPostName" placeholder="Enter name"><br>
     <br>
     <p>Your Email</p>
-    <input type = "text" id = "economicPostEmail" name = "economicPostEmail">
+    <input type = "text" id = "economicPostEmail" name = "economicPostEmail" placeholder="Enter email">
     <br>
     <br>
-    <button onclick="send_economic()" class="btn btn-danger">Submit</button>    `;
+    <button style="background-color:rgb(245,120,93); text-color:rgb(255, 255, 255)" onclick="send_economic()" class="btn">Submit</button>    `;
     mymap = L.map("map").setView([47.61341768915884, -122.03149390175979], 13);
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -147,27 +147,27 @@ function submit() {
     console.log("bye");
     document.getElementById("formthing").innerHTML = `
     <p>Title (include purpose)</p>
-    <input type = "text" id = "otherPostTitle" name = "otherPostTitle" placeholder="Title">
+    <input type = "text" id = "otherPostTitle" name = "otherPostTitle" placeholder="Enter title here">
     <br>
     <br>
     <p>(Description, include experiences, dates, goals, and special notes)</p>
-    <textarea rows = "6" cols = "50" id = "otherPostDescription" name = "otherPostDescription" placeholder="Description"></textarea>
+    <textarea rows = "6" cols = "50" id = "economicPostDescription" name = "economicPostDescription" placeholder="Enter description here"></textarea>
     <br>
     <br>
     <p>Location (click on your general area)</p>
-    <div id="map" style="height:300px; width:300px"></div>
+     <div id="map" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height:300px; width:300px;"></div>
     <br>
     <p>Your fundraising goal</p>
-    <label>$ </label><input type = "text" id = "otherFee" name = "otherPostFee"><br>
+    <label>$ </label><input type = "text" id = "otherFee" name = "otherPostFee" placeholder="Enter goal"><br>
     <br>
     <p>Your Name</p>
-    <input type = "text" id = "otherPostName" name = "otherPostName"><br>
+    <input type = "text" id = "otherPostName" name = "otherPostName" placeholder="Enter name"><br>
     <br>
     <p>Your Email</p>
-    <input type = "text" id = "otherPostEmail" name = "otherPostEmail">
+    <input type = "text" id = "otherPostEmail" name = "otherPostEmail" placeholder="Enter email">
     <br>
     <br>
-    <button onclick="send_other()" class="btn btn-danger">Submit</button>    
+    <button style="background-color:rgb(245,120,93); text-color:rgb(255, 255, 255)" onclick="send_other()" class="btn">Submit</button>    
     `;
     mymap = L.map("map").setView([47.61341768915884, -122.03149390175979], 13);
     L.tileLayer(
@@ -305,47 +305,6 @@ function send_other() {
     fee;
 }
 
-function viewTutorPost(data) {
-  $.get({
-    url: "/getTutorPost?id=" + data,
-    success: function (data, status) {
-      window._title = data.title;
-      window._subject = data.subject;
-      window._description = data.description;
-      window._fee = data.fee;
-      window._email = data.email;
-      window._phone = data.phone;
-      console.log(window._title);
-      document.getElementById("column2").innerHTML =
-        `
-         <div>
-         <h1 style="font-size: 50px">` +
-        window._title +
-        `</h1>
-         <br>
-         <p style="font-size: 25px">` +
-        window._description +
-        `</p>
-         <br>
-         <p style="font-size: 25px">Fee: $` +
-        window._fee +
-        ` per hour</p>
-         </div>
-         `;
-      document.getElementById("contactInfo").innerHTML =
-        `<br>
-            <p style="">Email: <a href="mailto: ` +
-        window._email +
-        `">` +
-        window._email +
-        `</a><br><br>Phone Number: ` +
-        window._phone +
-        `</p>
-         `;
-    },
-  });
-}
-
 function viewEnvironmentalPost(data) {
   $.get({
     url: "/getEnvironmentalPost?id=" + data,
@@ -358,7 +317,7 @@ function viewEnvironmentalPost(data) {
       window._name = data.name;
       window._lat = data.lat;
       window._lng = data.lng;
-      console.log(window._title, window._fee)
+      console.log(window._title, window._fee);
       document.getElementById("innerContent").innerHTML =
         `
         <div style="padding:15px">
@@ -366,7 +325,7 @@ function viewEnvironmentalPost(data) {
         window._title +
         `</h1>
         <br>
-        <p style="font-size: 25px">` +
+        <p style="width: 50%; font-size: 25px">` +
         window._description +
         `</p>
         <br>
@@ -374,7 +333,8 @@ function viewEnvironmentalPost(data) {
         window._name +
         `</p>
         <br>
-        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
+        <p style="font-size: 25px">Fundraising goal: $` +
+        window._fee +
         `</p>
         <form id="form" name="form" action="/try_pay" method="post">
         <br>
@@ -383,7 +343,7 @@ function viewEnvironmentalPost(data) {
         </form>
 
         </div>
-        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
+        <div id="map" style="width:400px; height:280px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
       window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
       L.tileLayer(
@@ -507,7 +467,7 @@ function viewSocialPost(data) {
       window._name = data.name;
       window._lat = data.lat;
       window._lng = data.lng;
-      console.log(window._title, window._fee)
+      console.log(window._title, window._fee);
       document.getElementById("innerContent").innerHTML =
         `
         <div style="padding:15px">
@@ -515,7 +475,7 @@ function viewSocialPost(data) {
         window._title +
         `</h1>
         <br>
-        <p style="font-size: 25px">` +
+        <p style="width: 50%; font-size: 25px">` +
         window._description +
         `</p>
         <br>
@@ -523,7 +483,8 @@ function viewSocialPost(data) {
         window._name +
         `</p>
         <br>
-        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
+        <p style="font-size: 25px">Fundraising goal: $` +
+        window._fee +
         `</p>
         <form id="form" name="form" action="/try_pay" method="post">
         <br>
@@ -531,7 +492,7 @@ function viewSocialPost(data) {
         <button> <a href="/try_pay"> Donate $15 </a></button>
         </form>
         </div>
-        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
+        <div id="map" style="width:400px; height:280px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
       window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
       L.tileLayer(
@@ -584,7 +545,7 @@ function viewEconomicPost(data) {
       window._name = data.name;
       window._lat = data.lat;
       window._lng = data.lng;
-      console.log(window._title, window._fee)
+      console.log(window._title, window._fee);
       document.getElementById("innerContent").innerHTML =
         `
         <div style="padding:15px">
@@ -592,7 +553,7 @@ function viewEconomicPost(data) {
         window._title +
         `</h1>
         <br>
-        <p style="font-size: 25px">` +
+        <p style="width: 50%; font-size: 25px">` +
         window._description +
         `</p>
         <form id="form" name="form" action="/try_pay" method="post">
@@ -605,10 +566,11 @@ function viewEconomicPost(data) {
         window._name +
         `</p>
         <br>
-        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
+        <p style="font-size: 25px">Fundraising goal: $` +
+        window._fee +
         `</p>
         </div>
-        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
+        <div id="map" style="width:400px; height:280px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
       window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
       L.tileLayer(
@@ -661,15 +623,16 @@ function viewOtherPost(data) {
       window._name = data.name;
       window._lat = data.lat;
       window._lng = data.lng;
-      console.log(window._title, window._fee)
+      console.log(window._title, window._fee);
       document.getElementById("innerContent").innerHTML =
         `
+        
         <div style="padding:15px">
         <h1 style="font-size: 50px">` +
         window._title +
         `</h1>
         <br>
-        <p style="font-size: 25px">` +
+        <p style="width: 50%; font-size: 25px">` +
         window._description +
         `</p>
         <br>
@@ -677,7 +640,8 @@ function viewOtherPost(data) {
         window._name +
         `</p>
         <br>
-        <p style="font-size: 25px">Fundraising goal: $` + window._fee +
+        <p style="font-size: 25px">Fundraising goal: $` +
+        window._fee +
         `</p>
         <form id="form" name="form" action="/try_pay" method="post">
         <br>
@@ -685,7 +649,7 @@ function viewOtherPost(data) {
         <button> <a href="/try_pay"> Donate $15 </a></button>
         </form>
         </div>
-        <div id="map" style="width:400px; height:400px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
+        <div id="map" style="width:400px; height:280px; overflow:hidden;position:absolute;top:80px;right:40px;"></div>
         `;
       window.mymap1 = L.map("map").setView([window._lat, window._lng], 13);
       L.tileLayer(

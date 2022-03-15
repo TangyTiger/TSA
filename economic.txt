@@ -58,5 +58,17 @@
           "lng": "-122.03853607177736",
           "subject": "Economic Inequality",
           "fee": "1"
+     },
+     {
+          "description": "A problem that is hurting the world",
+          "title": "Stopping carbon emissions",
+          "type": "Economic Inequality",
+          "name": "aditya",
+          "id": 44,
+          "email": "helpletmego@gmail.com",
+          "lat": "47.61839433634071",
+          "lng": "-122.03794306260535",
+          "subject": "Economic Inequality",
+          "fee": "99"
      }
 ]

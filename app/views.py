@@ -54,10 +54,6 @@ with open('environmental.txt') as f:
     environmentalPosts = json.load(f)
 with open('social.txt') as f:
     socialPosts = json.load(f)
-with open('discussion.txt') as f:
-    discussionPosts = json.load(f)
-with open('tutor.txt') as f:
-    tutoringPosts = json.load(f)
 with open('economic.txt') as f:
   economicPosts = json.load(f)
 with open('other.txt') as f:
@@ -140,10 +136,6 @@ def submitpost():
     return redirect("/save")
 
 
-@app.route('/viewTutorsSubjects')
-def viewtutors():
-    return render_template("viewTutorsSubjects.html")
-
 
 @app.route('/viewEnvironmentalSubjects')
 def viewEnvironmental():
@@ -161,23 +153,7 @@ def viewEconomic():
 def viewOther():
     return render_template("viewOther.html", otherPosts=otherPosts)
 
-@app.route('/tutorViewing')
-def viewtutorslist():
-    subject = request.args.get("subject")
-    filteredSubjects = []
-    for i in tutoringPosts:
-        if i["subject"] == subject:
-            filteredSubjects.append(i)
-    return render_template("tutorViewing.html", tutorPosts=filteredSubjects)
 
-
-@app.route('/getTutorPost')
-def getTutorPost():
-    data = int(request.args.get("id"))
-    print(data)
-    for i in tutoringPosts:
-        if i["id"] == data:
-            return jsonify(i)
 
 
 @app.route('/getEnvironmentalPost')
@@ -212,51 +188,15 @@ def getOtherPost():
        if i["id"] == data:
            return jsonify(i)
 
-@app.route('/discussionsThread')
-def answerQuestions():
-    question = int(request.args["id"])
-    for i in discussionPosts:
-        print(question)
-        if i["id"] == question:
-            return render_template("discussionThreads.html", post=i)
-
-
-@app.route('/viewAllDiscussions')
-def viewAllDiscussion():
-    return render_template("viewAllDiscussions.html", discussionPosts=discussionPosts)
-
-
-#@app.route('/viewAllSupplies')
-#def viewAllSupplies():
-#    return render_template("viewAllSupplies.html", supplies=schoolSupplyPosts)
-
-
-#@app.route('/supplyRespond')
-#def supplyRespond():
-#    supply = int(request.args.get("id"))
-#    for i in schoolSupplyPosts:
-#        if i["id"] == supply:
-#            return render_template("supplyRespond.html", post=i)
-
-
-@app.route('/sendReply')
-def sendReply():
-    reply = request.args.get("reply")
-    id = int(request.args.get("id"))
-    for i in discussionPosts:
-        if i["id"] == id:
-            i['replies'].insert(0, reply)
-            return redirect("/discussionsThread?id=" + str(id))
-
 
 @app.route('/view')
-def viewAllEnvironmental():
+def view():
     subject = request.args.get("subject")
     filteredSubjects = []
     for i in environmentalPosts:
         if i["subject"] == subject:
             filteredSubjects.append(i)
-    return render_template('gallery.html', tutorPosts=filteredSubjects)
+    return render_template('gallery.html')
 
 @app.route('/save')
 def save():
@@ -268,8 +208,6 @@ def save():
         convert_file.write(json.dumps(socialPosts, indent=5))
     with open('economic.txt', 'w') as convert_file:
         convert_file.write(json.dumps(economicPosts, indent=5))
-    with open('tutor.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(tutoringPosts, indent=5))
     with open('ids.txt', 'w') as convert_file:
         convert_file.write(json.dumps({'preid': preid}, indent=5))
     return redirect("/home")

@@ -1,35 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <title>Sign in to SchoolService</title>
+<head>
+    <title>Sign Up For SchoolService</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/signup.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
   </head>
-  <body style="text-align: center; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/wsps.png'); background-size: cover " class="bg-info">
-  <div class="container-fluid w-100 h-100">
-  <div class="container-fluid text-light p-2" style="text-align: center">
-    <h1>Welcome to School Service</h1>
-  </div>
-    <br>
-    <br>
-  <div class="container bg-light h-50 p-4" style="text-align: center; border-radius: 25px; width: 20%">
-    <form action="/home" class="w-50 m-auto" style="text-align: center;">
-      <label for="email">Email:</label><br>
-      <input type = "text" id="email" name="lname" placeholder="jdoe@lwsd.org" style="width: 100%"><br>
-      <br>
-      <label for="password">Password:</label><br>
-      <input type = "password" id = "password" name = "password" placeholder="password" style="width: 100%"><br>
-      <br>
-      <input type="submit" class="btn btn-danger" value="Submit">
-    </form>
-    <br>
-    <a href="/signup">Don't have an account? Register</a>
-  </div>
-  </div>
 
-  </body>
+<body style="background-color: rgb(245,120,93)">
+<div class="form">
+  <div class="title">Welcome to commUNITY</div>
+  <div class="subtitle">Let's create your account! <br> <a href="/signup"> Don't have an account? Create one!</a></div>
+
+  <div class="input-container ic2">
+    <input id="email" class="input" type="text" placeholder=" " required>
+    <div class="cut cut-short"></div>
+    <label for="email" class="placeholder">Email</label>
+  </div>
+    <div class="input-container ic2">
+    <input id="password" class="input" type="password" placeholder=" " required>
+    <div class="cut"></div>
+    <label for="password" class="placeholder">Password</label>
+  </div>
+    <a href="/home"><button href="/home" type="text" class="submit">submit</button></a>
+  </div>
+</body>
 </html>
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en" dir="ltr">#}
+{#  <head>#}
+{#    <title>Sign in to SchoolService</title>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>#}
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>#}
+{#  </head>#}
+{#  <body style="text-align: center; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/wsps.png'); background-size: cover " class="bg-info">#}
+{#  <div class="container-fluid w-100 h-100">#}
+{#  <div class="container-fluid text-light p-2" style="text-align: center">#}
+{#    <h1>Welcome to School Service</h1>#}
+{#  </div>#}
+{#    <br>#}
+{#    <br>#}
+{#  <div class="container bg-light h-50 p-4" style="text-align: center; border-radius: 25px; width: 20%">#}
+{#    <form action="/home" class="w-50 m-auto" style="text-align: center;">#}
+{#      <label for="email">Email:</label><br>#}
+{#      <input type = "text" id="email" name="lname" placeholder="jdoe@lwsd.org" style="width: 100%"><br>#}
+{#      <br>#}
+{#      <label for="password">Password:</label><br>#}
+{#      <input type = "password" id = "password" name = "password" placeholder="password" style="width: 100%"><br>#}
+{#      <br>#}
+{#      <input type="submit" class="btn btn-danger" value="Submit">#}
+{#    </form>#}
+{#    <br>#}
+{#    <a href="/signup">Don't have an account? Register</a>#}
+{#  </div>#}
+{#  </div>#}
+{##}
+{#  </body>#}
+{#</html>#}
