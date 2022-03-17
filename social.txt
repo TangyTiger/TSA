@@ -1,9 +1,9 @@
 [
      {
-          "description": "wer",
-          "title": "edf",
+          "description": "There is a lot of hate around those people of color, so I am organizing a protest at Redmond Town Center at 3:00 on March 20th to protest this problem and what we face. BRING SIGNS!",
+          "title": "BLM protest",
           "type": "Social Inequality",
-          "name": "sdf",
+          "name": "Jane Doe",
           "id": 35,
           "email": "asdf",
           "lat": "47.60814107511172",
@@ -12,50 +12,14 @@
           "fee": "324"
      },
      {
-          "description": "Hi",
-          "title": "Hi",
+          "description": "Due to Covid, many people blame those of Asian descent, and those that look like them, for this entire situation. Even though its not all these peoples fault. This causes AAPI hate and it is a problem that is harming many people which must be stopped. I encourage all of you to donate to the cause, which will go straight to the stopping AAPI hate foundation and we will organize a protest on May 7th at 9:00 AM to protest this issue in our communities. ",
+          "title": "Ending AAPI hate!",
           "type": "Social Inequality",
-          "name": "ad",
+          "name": "Mary",
           "id": 39,
           "email": "sf",
           "lat": "47.615421267605434",
           "lng": "-122.04711914062501",
-          "subject": "Social Inequality",
-          "fee": "99"
-     },
-     {
-          "description": "There is trash in my car. Come into my car.",
-          "title": "Trash",
-          "type": "Social Inequality",
-          "name": "Aditya SHah",
-          "id": 40,
-          "email": "jadk",
-          "lat": "undefined",
-          "lng": "undefined",
-          "subject": "Social Inequality",
-          "fee": "Irrelevant just come into my car"
-     },
-     {
-          "description": "arjqerl",
-          "title": "ad",
-          "type": "Social Inequality",
-          "name": "as",
-          "id": 42,
-          "email": "sad",
-          "lat": "47.61573768183291",
-          "lng": "-122.01824881849463",
-          "subject": "Social Inequality",
-          "fee": "31"
-     },
-     {
-          "description": "Especially in Indian Americans. ",
-          "title": "End Social Inequality",
-          "type": "Social Inequality",
-          "name": "Meghna Shah",
-          "id": 45,
-          "email": "shahmeghna@outlook.com",
-          "lat": "47.65393576418546",
-          "lng": "-122.08182596135885",
           "subject": "Social Inequality",
           "fee": "500"
      }
